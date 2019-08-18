@@ -31,6 +31,10 @@ axios
         const newArticle = cardCreator(article);
         cards.appendChild(newArticle);
       });
+      // for(let items of article){
+      //    const newArticle = cardCreator(article)
+      //    cards.appendChild(newArticle);
+      // }
     }
   })
   .catch(error => {
@@ -45,12 +49,15 @@ const cardCreator = data => {
   const headline = document.createElement("div");
   headline.classList.add("headline");
   headline.textContent = data.headline;
+  card.appendChild(headline); 
 
   const author = document.createElement("div");
   author.classList.add("author");
-
+  card.appendChild(author);
+  
   const img = document.createElement("div");
   img.classList.add("img-container");
+  author.appendChild(img);
 
   const authorImg = document.createElement("img");
   authorImg.src = data.authorPhoto;
@@ -58,11 +65,7 @@ const cardCreator = data => {
   
   const authorName = document.createElement("span");
   authorName.textContent = `By:  ${data.authorName}`;
-  author.appendChild(img);
   author.appendChild(authorName);
-
-  card.appendChild(headline);
-  card.appendChild(author);
 
   return card;
 };
