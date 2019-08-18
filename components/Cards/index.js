@@ -38,7 +38,7 @@ axios
     }
   })
   .catch(error => {
-    console.log("An error occurred: ");
+    console.log("Error: ");
     console.log(error);
   });
 
