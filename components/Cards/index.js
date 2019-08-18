@@ -26,21 +26,16 @@ axios
   .then(res => {
     //console.log(res.data.articles);
     const articles = res.data.articles;
-    for (let item in articles) {
-      articles[item].forEach(article => {
-        const newArticle = cardCreator(article);
-        cards.appendChild(newArticle);
-      });
+    for (let item in articles) {// for in iterates over a object
+      articles[item].forEach(article => (cards.appendChild(cardCreator(article))));//this appends the whole thing to the page
+
       // for(let items of article){
       //    const newArticle = cardCreator(article)
       //    cards.appendChild(newArticle);
       // }
     }
   })
-  .catch(error => {
-    console.log("Error: ");
-    console.log(error);
-  });
+  .catch(error => console.log(error));
 
 const cardCreator = data => {
   const card = document.createElement("div");
